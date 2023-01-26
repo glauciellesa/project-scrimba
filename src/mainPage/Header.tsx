@@ -16,7 +16,9 @@ const Header = () => {
   console.log(isMenuOpen);
   return (
     <StyledHeader>
-      <div className="nav-container">
+      <div
+        className={isMenuOpen ? "nav-container-open" : "nav-container-close"}
+      >
         <div className="nav-left">
           {isMenuOpen ? (
             ""
@@ -56,12 +58,13 @@ const StyledHeader = styled.header`
   padding: 1rem;
   box-shadow: 0 3px 3px -4px ${({ theme }) => theme.textColorAlt};
 
-  .nav-container {
+  .nav-container-close {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
   }
+
   #logo img {
     width: 70px;
   }
@@ -95,8 +98,23 @@ const StyledHeader = styled.header`
     position: absolute;
     bottom: 0;
     box-shadow: 0 3px 3px 3px ${({ theme }) => theme.textColorAlt};
+
+    .nav-container-open {
+      display: block;
+    }
+    .nav-container-close {
+      display: flex;
+      justify-content: space-between;
+    }
     .nav-right-open {
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      .nav-SmallScrin {
+        text-align: left;
+        width: 100%;
+        margin-top: 1rem;
+      }
     }
     .nav_toggle {
       display: block;
