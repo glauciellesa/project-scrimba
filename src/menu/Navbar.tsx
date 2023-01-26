@@ -53,7 +53,7 @@ const StyledMenuItem = styled.ul`
       display: none;
     }
     i {
-      display: block;
+      display: flex;
       padding: 0.3rem;
     }
   }

@@ -18,24 +18,24 @@ const Header = () => {
     <StyledHeader>
       <div className="nav-container">
         <div className="nav-left">
-          {isMenuOpen == false ? (
-            <div className="logo">
+          {isMenuOpen ? (
+            ""
+          ) : (
+            <div id="logo">
               <a href="/">
                 <img src={logoNoBackground} className="logo" alt="My logo" />
               </a>
             </div>
-          ) : (
-            ""
           )}
         </div>
-        <div className="nav-right">
+        <div className={isMenuOpen ? "nav-right-open" : "nav-right-close"}>
           <Navbar isOpen={isMenuOpen} />
-          {isMenuOpen == false ? <ToggleTheme /> : ""}
+          {isMenuOpen ? "" : <ToggleTheme />}
           <div className="nav-SmallScrin">
             <div className="nav_toggle" id="nav-toggle">
               <i
                 className={
-                  isMenuOpen == false ? "fa-solid fa-grip" : "fa-solid fa-xmark"
+                  isMenuOpen ? "fa-solid fa-xmark" : "fa-solid fa-grip"
                 }
                 onClick={toggleMenu}
               />
@@ -62,10 +62,10 @@ const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-between;
   }
-  .logo img {
+  #logo img {
     width: 70px;
   }
-  .logo {
+  #logo {
     &:hover,
     &:focus {
       opacity: 0.5;
@@ -79,26 +79,28 @@ const StyledHeader = styled.header`
     display: none;
   }
 
-  .nav-right {
+  .nav-right-close {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
   }
+
   .nav-SmallScrin .nav-close {
     display: none;
   }
+
   @media (max-width: 500px) {
     font-size: 1.5rem;
     position: absolute;
     bottom: 0;
     box-shadow: 0 3px 3px 3px ${({ theme }) => theme.textColorAlt};
-    .nav-SmallScrin {
-      display: block;
-      padding: 0.3rem;
+    .nav-right-open {
+      align-items: center;
     }
     .nav_toggle {
       display: block;
+      text-align: right;
     }
   }
 `;
