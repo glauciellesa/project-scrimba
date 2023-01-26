@@ -38,6 +38,12 @@ const StyledHeader = styled.header`
   .logo img {
     width: 70px;
   }
+  .logo {
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
   .nav.left {
     display: flex;
     padding: 0;

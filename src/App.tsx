@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CSSReset from "./themes/CSSReset";
 import MyThemeProvider from "./contexts/ThemeContext";
 import { GlobalStyles } from "./themes/ThemeConfig";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 function App() {
   return (

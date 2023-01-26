@@ -1,7 +1,6 @@
 export interface Theme {
   backgroundBase: string;
   backgroundLevel: string;
-  borderBase: string;
   textColor: string;
   textColorAlt: string;
 }

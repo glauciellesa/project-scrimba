@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import { menuItems } from "../menu/menuItems";
+
 const Navbar = () => {
   return (
     <nav>
-      <StyledMenuItem className="menus">
-        {menuItems.map((menu: any, index: number) => {
+      <StyledMenuItem>
+        {menuItems.map((menu: any) => {
           return (
-            <li className="menu-items" key={index}>
-              <a href={menu.url}>{menu.title}</a>
+            <li className="menu-items" key={menu.url}>
+              <a className="item-link" href={menu.url}>
+                <i className={menu.icon} />
+                {menu.title}
+              </a>
             </li>
           );
         })}
@@ -22,11 +26,14 @@ const StyledMenuItem = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-between;
-  text-decoration: none;
   gap: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: lighter;
-  a {
+  white-space: nowrap;
+  .item-link {
     color: ${({ theme }) => theme.textColorAlt};
+  }
+  .item-link:hover {
+    color: ${({ theme }) => theme.textColor};
   }
 `;
