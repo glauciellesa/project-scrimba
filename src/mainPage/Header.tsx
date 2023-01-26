@@ -75,6 +75,10 @@ const StyledHeader = styled.header`
     display: flex;
     padding: 0;
   }
+  .nav_toggle {
+    display: none;
+  }
+
   .nav-right {
     display: flex;
     align-items: center;
@@ -92,6 +96,9 @@ const StyledHeader = styled.header`
     .nav-SmallScrin {
       display: block;
       padding: 0.3rem;
+    }
+    .nav_toggle {
+      display: block;
     }
   }
 `;

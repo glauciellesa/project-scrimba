@@ -44,9 +44,6 @@ const StyledMenuItem = styled.ul`
     display: none;
     padding: 0.3rem;
   }
-  #menu-items {
-    display: none;
-  }
 
   #menu-items.open {
     display: flex;
