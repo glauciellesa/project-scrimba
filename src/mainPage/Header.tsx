@@ -1,22 +1,51 @@
 import styled from "styled-components";
-import reactLogo from "../assets/react.svg";
+import logoNoBackground from "../assets/png/logoNoBackground.png";
 import ToggleTheme from "../menu/ToggleTheme";
 import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <header>
-      <div className="nav-area">
-        <a href="/" className="logo">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <Navbar />
-        <ToggleTheme />
+    <StyledHeader>
+      <div className="nav-container">
+        <div className="nav-left">
+          <div className="logo">
+            <a href="/">
+              <img src={logoNoBackground} className="logo" alt="My logo" />
+            </a>
+          </div>
+        </div>
+        <div className="nav-right">
+          <Navbar />
+          <ToggleTheme />
+        </div>
       </div>
-    </header>
+    </StyledHeader>
   );
 };
 
 export default Header;
 
-const StyledHeader = styled.div``;
+const StyledHeader = styled.header`
+  width: 100vw;
+  padding: 1rem;
+  box-shadow: 0 3px 3px -4px ${({ theme }) => theme.textColorAlt};
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo img {
+    width: 70px;
+  }
+  .nav.left {
+    display: flex;
+    padding: 0;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+`;

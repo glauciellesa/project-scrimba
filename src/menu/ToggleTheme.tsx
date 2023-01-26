@@ -31,7 +31,7 @@ export default ToggleTheme;
 const StyledToggle = styled.div`
   background-color: #333333;
   border: 0;
-  padding: 2px 3px 2px 2px;
+  padding: 3px 3px;
   font-size: 14px;
   width: 50px;
   height: 25px;

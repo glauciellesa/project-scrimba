@@ -9,8 +9,8 @@ function App() {
     <MyThemeProvider>
       {/* I'll Wrap all the components that need the context with a context
       provider: */}
-      <GlobalStyles />
       <CSSReset />
+      <GlobalStyles />
       <StyledApp>
         <Header />
       </StyledApp>
