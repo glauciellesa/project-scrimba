@@ -9,7 +9,7 @@ const Navbar = (props: { isOpen: any }) => {
           return (
             <li
               id="menu-items"
-              className={props.isOpen ? "open" : ""}
+              className={props.isOpen ? "open" : null}
               key={menu.url}
             >
               <a className="item-link" href={menu.url}>

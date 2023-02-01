@@ -2,6 +2,9 @@ import { createContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../themes/ThemeConfig";
 
+export const LIGHT = "light";
+export const DARK = "dark";
+
 type MyThemeContextType = {
   theme: string;
   setTheme: (newTheme: string) => void;
@@ -9,11 +12,11 @@ type MyThemeContextType = {
 export const MyThemeContext = createContext({} as MyThemeContextType);
 
 interface MyThemeProviderProps {
-  //disponibliza o theme e o setTheme para meu context
+  //It makes the theme and setTheme available to my context
   children: any;
 }
 const MyThemeProvider = (props: MyThemeProviderProps) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "LIGHT");
 
   const setThemeFunc = (newTheme: string) => {
     setTheme(newTheme);
@@ -26,17 +29,9 @@ const MyThemeProvider = (props: MyThemeProviderProps) => {
       value={{
         theme,
         setTheme: setThemeFunc,
-        /* {
-        theme,
-        setTheme: (v: string) => {
-          //TODO: convert to useCalbeck
-          setTheme(v);
-          localStorage.setItem("theme", v);
-        },
-      } */
       }}
     >
-      <ThemeProvider theme={theme == "light" ? lightTheme : darkTheme}>
+      <ThemeProvider theme={theme == "LIGHT" ? lightTheme : darkTheme}>
         {props.children}
       </ThemeProvider>
     </MyThemeContext.Provider>

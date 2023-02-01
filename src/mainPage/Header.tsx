@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logoNoBackground from "../assets/png/logoNoBackground.png";
+import logoNoBackground from "../assets/img/logo-no-background.png";
 import ToggleTheme from "../menu/ToggleTheme";
 import Navbar from "../menu/Navbar";
 import { useState } from "react";
@@ -13,16 +13,14 @@ const Header = () => {
       setIsMenuOpen(false);
     }
   };
-  console.log(isMenuOpen);
+
   return (
     <StyledHeader>
       <div
         className={isMenuOpen ? "nav-container-open" : "nav-container-close"}
       >
         <div className="nav-left">
-          {isMenuOpen ? (
-            ""
-          ) : (
+          {isMenuOpen ? null : (
             <div id="logo">
               <a href="/">
                 <img src={logoNoBackground} className="logo" alt="My logo" />
@@ -32,7 +30,7 @@ const Header = () => {
         </div>
         <div className={isMenuOpen ? "nav-right-open" : "nav-right-close"}>
           <Navbar isOpen={isMenuOpen} />
-          {isMenuOpen ? "" : <ToggleTheme />}
+          {isMenuOpen ? null : <ToggleTheme />}
           <div className="nav-SmallScrin">
             <div className="nav_toggle" id="nav-toggle">
               <i

@@ -6,17 +6,17 @@ function ToggleTheme() {
   const { theme, setTheme } = useContext(MyThemeContext);
 
   const toggleTheme = () => {
-    if (theme == "light") {
-      setTheme("dark");
+    if (theme == "LIGHT") {
+      setTheme("DARK");
     } else {
-      setTheme("light");
+      setTheme("LIGHT");
     }
   };
 
   return (
     <StyledToggle>
       <i
-        className={theme == "light" ? "fa-solid fa-moon" : "fa-solid fa-sun"}
+        className={theme == "LIGHT" ? "fa-solid fa-moon" : "fa-solid fa-sun"}
         onClick={toggleTheme}
       />
     </StyledToggle>
