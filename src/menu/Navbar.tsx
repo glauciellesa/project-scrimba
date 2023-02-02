@@ -1,4 +1,6 @@
 import { menuItems } from "./menuItems";
+import { NavLink } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav>
@@ -6,7 +8,7 @@ const Navbar = () => {
         {menuItems.map((menu: any, index: number) => {
           return (
             <li className="menu-items" key={index}>
-              <a href={menu.url}>{menu.title}</a>
+              <NavLink to={menu.url}>{menu.title}</NavLink>
             </li>
           );
         })}
