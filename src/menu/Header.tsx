@@ -3,6 +3,9 @@ import logoNoBackground from "../assets/img/logo-no-background.png";
 import ToggleTheme from "../menu/ToggleTheme";
 import Navbar from "../menu/Navbar";
 import { useState } from "react";
+import reactLogo from "../assets/react.svg";
+import Navbar from "./Navbar";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,9 +25,9 @@ const Header = () => {
         <div className="nav-left">
           {isMenuOpen ? null : (
             <div id="logo">
-              <a href="/">
+              <NavLink to href="/">
                 <img src={logoNoBackground} className="logo" alt="My logo" />
-              </a>
+              </NavLink>
             </div>
           )}
         </div>

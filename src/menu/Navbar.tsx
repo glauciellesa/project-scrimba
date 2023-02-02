@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { menuItems } from "../menu/menuItems";
+import { NavLink } from "react-router-dom";
 
 const Navbar = (props: { isOpen: any }) => {
   return (
@@ -12,10 +13,10 @@ const Navbar = (props: { isOpen: any }) => {
               className={props.isOpen ? "open" : undefined}
               key={menu.url}
             >
-              <a className="item-link" href={menu.url}>
+              <NavLink className="item-link" to={menu.url}>
                 <i className={menu.icon} />
                 {menu.title}
-              </a>
+              </NavLink>
             </li>
           );
         })}
