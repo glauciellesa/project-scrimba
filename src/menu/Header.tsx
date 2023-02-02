@@ -3,8 +3,6 @@ import logoNoBackground from "../assets/img/logo-no-background.png";
 import ToggleTheme from "../menu/ToggleTheme";
 import Navbar from "../menu/Navbar";
 import { useState } from "react";
-import reactLogo from "../assets/react.svg";
-import Navbar from "./Navbar";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
