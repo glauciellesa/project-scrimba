@@ -10,6 +10,12 @@ import RootLayout from "./layouts/RootLayout";
 import Home from "./pages/Home";
 import Project1 from "./pages/Project1";
 import Project2 from "./pages/Project2";
+import Header from "./mainPage/Header";
+import styled from "styled-components";
+import CSSReset from "./themes/CSSReset";
+import MyThemeProvider from "./contexts/ThemeContext";
+import { GlobalStyles } from "./themes/ThemeConfig";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 function App() {
   const router = createBrowserRouter(
@@ -22,7 +28,22 @@ function App() {
     )
   );
 
-  return <RouterProvider router={router} />;
+  return (
+    <MyThemeProvider>
+      {/* I'll Wrap all the components that need the context with a context
+      provider: */}
+      <CSSReset />
+      <GlobalStyles />
+      <StyledApp>
+        <RouterProvider router={router} />;
+      </StyledApp>
+    </MyThemeProvider>
+  );
 }
 
 export default App;
+
+const StyledApp = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;

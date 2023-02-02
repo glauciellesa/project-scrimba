@@ -1,20 +1,61 @@
-import { menuItems } from "./menuItems";
+import styled from "styled-components";
+import { menuItems } from "../menu/menuItems";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props: { isOpen: any }) => {
   return (
     <nav>
-      <ul className="menus">
-        {menuItems.map((menu: any, index: number) => {
+      <StyledMenuItem>
+        {menuItems.map((menu: any) => {
           return (
-            <li className="menu-items" key={index}>
-              <NavLink to={menu.url}>{menu.title}</NavLink>
+            <li
+              id="menu-items"
+              className={props.isOpen ? "open" : undefined}
+              key={menu.url}
+            >
+              <NavLink className="item-link" to={menu.url}>
+                <i className={menu.icon} />
+                {menu.title}
+              </NavLink>
             </li>
           );
         })}
-      </ul>
+      </StyledMenuItem>
     </nav>
   );
 };
 
 export default Navbar;
+
+const StyledMenuItem = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  font-weight: lighter;
+  white-space: nowrap;
+  .item-link {
+    color: ${({ theme }) => theme.textColorAlt};
+  }
+  .item-link:hover {
+    color: ${({ theme }) => theme.textColor};
+  }
+  i {
+    display: none;
+    padding: 0.3rem;
+  }
+
+  #menu-items.open {
+    display: flex;
+  }
+  @media (max-width: 500px) {
+    #menu-items {
+      display: none;
+    }
+    i {
+      display: flex;
+      padding: 0.3rem;
+    }
+  }
+`;
