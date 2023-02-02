@@ -1,60 +1,18 @@
-import styled from "styled-components";
-import { menuItems } from "../menu/menuItems";
-
-const Navbar = (props: { isOpen: any }) => {
+import { menuItems } from "./menuItems";
+const Navbar = () => {
   return (
     <nav>
-      <StyledMenuItem>
-        {menuItems.map((menu: any) => {
+      <ul className="menus">
+        {menuItems.map((menu: any, index: number) => {
           return (
-            <li
-              id="menu-items"
-              className={props.isOpen ? "open" : undefined}
-              key={menu.url}
-            >
-              <a className="item-link" href={menu.url}>
-                <i className={menu.icon} />
-                {menu.title}
-              </a>
+            <li className="menu-items" key={index}>
+              <a href={menu.url}>{menu.title}</a>
             </li>
           );
         })}
-      </StyledMenuItem>
+      </ul>
     </nav>
   );
 };
 
 export default Navbar;
-
-const StyledMenuItem = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
-  font-weight: lighter;
-  white-space: nowrap;
-  .item-link {
-    color: ${({ theme }) => theme.textColorAlt};
-  }
-  .item-link:hover {
-    color: ${({ theme }) => theme.textColor};
-  }
-  i {
-    display: none;
-    padding: 0.3rem;
-  }
-
-  #menu-items.open {
-    display: flex;
-  }
-  @media (max-width: 500px) {
-    #menu-items {
-      display: none;
-    }
-    i {
-      display: flex;
-      padding: 0.3rem;
-    }
-  }
-`;

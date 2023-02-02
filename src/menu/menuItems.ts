@@ -6,12 +6,12 @@ export const menuItems = [
   },
   {
     title: "Project 1",
-    url: "/projetct1",
+    url: "project1",
     icon: "fa-regular fa-file",
   },
   {
     title: "Project 2",
-    url: "/projetct2",
+    url: "project2",
     icon: "fa-regular fa-file",
   },
 ];
