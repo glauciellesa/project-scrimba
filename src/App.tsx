@@ -16,6 +16,7 @@ import CSSReset from "./themes/CSSReset";
 import MyThemeProvider from "./contexts/ThemeContext";
 import { GlobalStyles } from "./themes/ThemeConfig";
 import "@fortawesome/fontawesome-free/css/all.css";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const router = createBrowserRouter(
@@ -24,6 +25,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path="project1" element={<Project1 />} />
         <Route path="project2" element={<Project2 />} />
+
+        <Route path="*" element={<NotFound />} />
       </Route>
     )
   );
@@ -35,7 +38,7 @@ function App() {
       <CSSReset />
       <GlobalStyles />
       <StyledApp>
-        <RouterProvider router={router} />;
+        <RouterProvider router={router} />
       </StyledApp>
     </MyThemeProvider>
   );
